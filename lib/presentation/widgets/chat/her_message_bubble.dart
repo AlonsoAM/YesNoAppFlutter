@@ -43,6 +43,17 @@ class _ImageBubble extends StatelessWidget {
             'https://yesno.wtf/assets/yes/9-6403270cf95723ae4664274db51f1fd4.gif',
         width: size.width * 0.7,
         fit: BoxFit.cover,
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) return child;
+          return Container(
+            height: 150,
+            width: size.width * 0.7,
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+            child: const Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        },
         height: 150,));
   }
 }
